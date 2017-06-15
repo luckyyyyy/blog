@@ -3,20 +3,25 @@
 	background-size: cover;
 	height: 500px;
 	&-nav {
-		background: rgba(0, 0, 0, .5);
 		display: flex;
 		justify-content: space-between;
 		height: 50px;
 		position: fixed;
 		width: 100%;
-		box-shadow: 0 0 10px #333;
 		z-index: 9;
+		transition: background .3s ease-in-out,
+					box-shadow .3s ease-in-out;
+		&--dark {
+			box-shadow: 0 0 10px #333;
+			background: rgba(255, 255, 255, .8);
+		}
 	}
 	&-site {
 		padding-left: 10px;
 		&__link {
 			color: white;
 			text-decoration: none;
+			transition: color .3s ease-in-out,
 		}
 		&__title {
 			margin: 0;
@@ -45,11 +50,38 @@
 			justify-content: center;
 			display: flex;
 			cursor: pointer;
-			transition: all .3s ease-in-out;
-			&--active, &:hover {
-				background: #fff;
-				color: #333;
+			position: relative;
+			transition-property: color;
+			transition-duration: .2s;
+			transition-timing-function: ease-in-out;
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				width: 100%;
+				bottom: 0;
+				transition-duration: .2s;
+				transition-timing-function: ease-in-out;
+				transition-delay: 0s;
+				transform: scaleX(0);
+				visibility: hidden;
+				border-bottom: 3px solid #fff;
 			}
+			&--active, &:hover {
+				&:before {
+					visibility: visible;
+					transform: scaleX(1);
+				}
+			}
+		}
+	}
+	&-nav--dark &-site__link {
+		color: #333;
+	}
+	&-nav--dark &-menu-item {
+		color: #333;
+		&:before {
+			border-bottom: 3px solid #333;
 		}
 	}
 	&-top {

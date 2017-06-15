@@ -1,10 +1,10 @@
 <template>
 	<header class="header">
-		<nav class="header-nav">
+		<nav class="header-nav" :class="{ 'header-nav--dark': dark }" :style="{ background: fadeBackGround }">
 			<div class="header-site">
 				<h1 class="header-site__title">
 					<router-link class="header-site__link" :to="{ name: 'index' }">
-						<!-- <img class="header-site__logo" src="../assets/logo.png"> -->
+						<img class="header-site__logo" src="../assets/logo.png">
 						BLOG
 					</router-link>
 				</h1>
@@ -31,7 +31,7 @@
 			</menu>
 		</nav>
 		<div class="header-top">
-			<div class="header-top__title">青阳魂的 BLOG</div>
+			<div class="header-top__title">青阳魂的weblog</div>
 			<div class="header-top__desc">
 				<img src="../assets/logo.png" class="header-top__avatar">
 				<p>未来不迎 当时不杂 过往不恋</p>
@@ -48,11 +48,22 @@
 		data() {
 			return {
 				labels: [],
+				dark: false,
+				fadeBackGround: 'rgba(255, 255, 255, 0)',
 			};
 		},
 		created() {
 			getLabels().then((res) => {
 				this.labels = res.data;
+			});
+		},
+		mounted() {
+			window.addEventListener('scroll', (e) => {
+				const scrollTop = e.target.body.scrollTop;
+				let alpha = e.target.body.scrollTop > 0 ? e.target.body.scrollTop / 500 : 0;
+				alpha = alpha > 0.9 ? 0.9 : alpha;
+				this.dark = scrollTop > 300;
+				this.fadeBackGround = `rgba(255, 255, 255, ${alpha})`;
 			});
 		},
 	};

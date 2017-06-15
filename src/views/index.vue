@@ -13,7 +13,7 @@
 					<span class="article-list-item__title">{{ item.title }}</span>
 				</div>
 				<div class="article-list-item__footer">
-					<span class="article-list-item__author">author: {{ item.user.login }}</span>
+					<span class="article-list-item__author">Posted by {{ item.user.login }} on </span>
 					<time class="article-list-item__time">{{ item.created_at | time }}</time>
 				</div>
 			</router-link>

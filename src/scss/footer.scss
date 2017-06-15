@@ -6,4 +6,16 @@
 	flex-direction: column;
 	display: flex;
 	font-size: 14px;
+	p {
+		margin: 0;
+	}
+	&__links {
+		a {
+			color: #009dff;
+			transition: color .3s ease-in-out;
+			&:hover {
+				color: darken(#009dff, 10%);
+			}
+		}
+	}
 }
