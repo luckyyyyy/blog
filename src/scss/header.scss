@@ -1,0 +1,74 @@
+.header {
+	background: #fff url(../assets/banner.jpg) top center;
+	background-size: cover;
+	height: 500px;
+	&-nav {
+		background: rgba(0, 0, 0, .5);
+		display: flex;
+		justify-content: space-between;
+		height: 50px;
+		position: fixed;
+		width: 100%;
+		box-shadow: 0 0 10px #333;
+		z-index: 9;
+	}
+	&-site {
+		padding-left: 10px;
+		&__link {
+			color: white;
+			text-decoration: none;
+		}
+		&__title {
+			margin: 0;
+			font-size: 16px;
+			display: flex;
+			align-items: center;
+			height: 100%;
+		}
+		&__logo {
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			vertical-align: middle;
+		}
+	}
+	&-menu {
+		height: 100%;
+		display: flex;
+		list-style: none;
+		margin: 0;
+		&-item {
+			width: 100px;
+			color: #fff;
+			height: 100%;
+			align-items: center;
+			justify-content: center;
+			display: flex;
+			cursor: pointer;
+			transition: all .3s ease-in-out;
+			&--active, &:hover {
+				background: #fff;
+				color: #333;
+			}
+		}
+	}
+	&-top {
+		position: relative;
+		color: white;
+		text-align: center;
+		top: 80px;
+		left: 0;
+		text-shadow: 1px 1px 1px #333;
+		&__title {
+			font-size: 75px;
+		}
+		&__desc {
+			font-size: 20px;
+		}
+		&__avatar {
+			width: 120px;
+			height: 120px;
+			border-radius: 50%;
+		}
+	}
+}
