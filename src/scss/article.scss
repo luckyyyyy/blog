@@ -6,13 +6,18 @@
 		border-bottom: 1px solid #eee;
 	}
 	&__title {
-		font-size: 48px;
-		line-height: 20px;
+		color: #333;
+		font-size: 38px;
+		line-height: 1;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
 	}
 	&__info {
 		font-size: 16px;
 		margin: 0;
-		padding: 0
+		padding: 0;
+		color: #999;
 	}
 	&__content {
 		margin-top: 30px;
