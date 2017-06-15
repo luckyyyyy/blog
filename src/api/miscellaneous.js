@@ -1,5 +1,5 @@
 import { http } from '@/api';
 
-export default ({ text, mode, context }) => {
-	return http.post('/markdown', { text, mode, context });
+export default ({ text, context }) => {
+	return http.post('/markdown', { text, mode: 'gfm', context });
 };

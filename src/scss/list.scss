@@ -1,17 +1,14 @@
 .article-list {
 	list-style: none;
 	padding: 0;
+	margin: 0;
 	&-item {
 		border-bottom: 1px solid #eee;
 		padding: 0 10px;
 		padding-bottom: 20px;
 		cursor: pointer;
-		transition: background .3s ease-in;
-		&:hover {
-			background: #fdfdfd;
-		}
 		&:hover &__title {
-			color: #3ed074;
+			color: #009dff;
 		}
 		&__head {
 			padding: 20px 0;
@@ -20,6 +17,7 @@
 			font-size: 26px;
 			vertical-align: middle;
 			transition: color .3s ease-in;
+			color: #555;
 		}
 		&__label {
 			font-size: 14px;
@@ -29,6 +27,13 @@
 		}
 		&__author {
 			font-size: 16px;
+			color: #888;
+		}
+		&__author, &__time {
+			transition: color .3s ease-in-out;
+		}
+		&:hover &__author, &:hover &__time {
+			color: #fda700;
 		}
 	}
 }

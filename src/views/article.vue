@@ -1,14 +1,24 @@
 <template>
-	<article class="container">
-		<div class="article-content markdown-body" v-html="markdown" v-if="!loading"></div>
+	<div class="container">
+		<article class="article" v-if="!loading">
+			<div class="article__head">
+				<h2 class="article__title">{{ article.title }}</h2>
+				<p class="article__info">
+					<span class="article__author">Posted by {{ article.user.login }} on </span>
+					<time class="article__time">{{ article.created_at | time }}</time>
+				</p>
+			</div>
+			<div class="article__content markdown-body" v-html="markdown"></div>
+		</article>
 		<div class="spinner" v-else>
 			<div class="spinner__circle1"></div>
 			<div class="spinner__circle2"></div>
 		</div>
-	</article>
+	</div>
 </template>
 
 <script>
+	import moment from 'moment';
 	import { getIssue } from '@/api/issues';
 	import getMarkdown from '@/api/miscellaneous';
 	import 'github-markdown-css';
@@ -30,6 +40,11 @@
 					this.loading = false;
 				});
 			});
+		},
+		filters: {
+			time(val) {
+				return moment(val).format('YYYY/MM/DD HH:mm');
+			},
 		},
 	};
 </script>

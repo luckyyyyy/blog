@@ -1,3 +1,20 @@
-.article-content {
-	margin-top: 30px;
+.article {
+	padding: 0 20px;
+	&__head {
+		text-align: center;
+		padding-bottom: 10px;
+		border-bottom: 1px solid #eee;
+	}
+	&__title {
+		font-size: 48px;
+		line-height: 20px;
+	}
+	&__info {
+		font-size: 16px;
+		margin: 0;
+		padding: 0
+	}
+	&__content {
+		margin-top: 30px;
+	}
 }

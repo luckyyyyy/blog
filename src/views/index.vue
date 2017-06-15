@@ -57,7 +57,7 @@
 		},
 		filters: {
 			time(val) {
-				return moment(val).format('Y-MM-DD HH:mm');
+				return moment(val).format('YYYY/MM/DD HH:mm');
 			},
 		},
 	};
