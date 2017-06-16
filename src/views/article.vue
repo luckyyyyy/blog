@@ -42,7 +42,7 @@
 				this.markdown = markdown;
 				this.loading = false;
 			} catch (e) {
-				// console.log(e);
+				this.$router.push({ name: '404' });
 			}
 		},
 		filters: {

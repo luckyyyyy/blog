@@ -22,16 +22,36 @@ export const http = {
 				params = `?${data.join('&').replace(/%20/g, '+')}`;
 			}
 		}
-		return fetch(`${baseURL}/${url}${params}`, {
-			headers,
-			method: 'GET',
+		return new Promise((resolve, reject) => {
+			fetch(`${baseURL}/${url}${params}`, {
+				headers,
+				method: 'GET',
+			}).then((res) => {
+				if (res.ok) {
+					resolve(res);
+				} else {
+					reject(res);
+				}
+			}).catch((err) => {
+				reject(err);
+			});
 		});
 	},
 	post(url, body) {
-		return fetch(`${baseURL}/${url}`, {
-			headers,
-			method: 'POST',
-			body: JSON.stringify(body),
+		return new Promise((resolve, reject) => {
+			fetch(`${baseURL}/${url}`, {
+				headers,
+				method: 'POST',
+				body: JSON.stringify(body),
+			}).then((res) => {
+				if (res.ok) {
+					resolve(res);
+				} else {
+					reject(res);
+				}
+			}).catch((err) => {
+				reject(err);
+			});
 		});
 	},
 };

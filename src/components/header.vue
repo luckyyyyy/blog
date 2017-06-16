@@ -1,29 +1,25 @@
 <template>
 	<header class="header">
-		<nav class="header-nav" :class="{ 'header-nav--dark': dark }" :style="{ background: fadeBackGround }">
-			<div class="header-site">
-				<h1 class="header-site__title">
-					<router-link class="header-site__link" :to="{ name: 'index' }">
-						<img class="header-site__logo" src="../assets/logo.png">
-						BLOG
-					</router-link>
-				</h1>
-			</div>
-			<menu class="header-menu">
+		<nav class="header-nav" :class="{ 'header-nav--dark': dark }">
+			<router-link tag="h1" class="header-nav-link" :to="{ name: 'index' }">
+				<img class="header-nav__logo" src="../assets/logo.png">
+				<span class="header-nav__text">BLOG</span>
+			</router-link>
+			<menu class="header-nav-menu">
 				<router-link
 					tag="li"
-					class="header-menu-item"
+					class="header-nav-menu-item"
 					:to="{ name: 'index' }"
-					:class="{ 'header-menu-item--active': $route.name == 'index' }"
+					:class="{ 'header-nav-menu-item--active': $route.name == 'index' }"
 				>
 					首页
 				</router-link>
 				<router-link
-					:class="{ 'header-menu-item--active': $route.params.label == item.name }"
+					:class="{ 'header-nav-menu-item--active': $route.params.label == item.name }"
 					:key="item.id"
 					:to="{ name: 'label', params: { label: item.name } }"
 					tag="li"
-					class="header-menu-item"
+					class="header-nav-menu-item"
 					v-for="item of labels"
 				>
 					{{ item.name }}
@@ -40,7 +36,7 @@
 		</div>
 	</header>
 </template>
-
+<!-- backdrop-filter -->
 <script>
 	import { getLabels } from '@/api/issues';
 
@@ -49,7 +45,6 @@
 			return {
 				labels: [],
 				dark: false,
-				fadeBackGround: 'rgba(255, 255, 255, 0)',
 			};
 		},
 		async created() {
@@ -64,10 +59,7 @@
 		mounted() {
 			window.addEventListener('scroll', (e) => {
 				const scrollTop = e.target.body.scrollTop;
-				let alpha = e.target.body.scrollTop > 0 ? e.target.body.scrollTop / 500 : 0;
-				alpha = alpha > 0.9 ? 0.9 : alpha;
-				this.dark = scrollTop > 300;
-				this.fadeBackGround = `rgba(255, 255, 255, ${alpha})`;
+				this.dark = scrollTop > 50;
 			});
 		},
 	};

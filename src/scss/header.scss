@@ -11,79 +11,82 @@
 		z-index: 9;
 		transition: background .3s ease-in-out,
 					box-shadow .3s ease-in-out;
-		&--dark {
-			box-shadow: 0 0 10px #333;
-			background: rgba(255, 255, 255, .8);
-		}
-	}
-	&-site {
-		padding-left: 10px;
-		&__link {
+		&-link {
 			color: white;
 			text-decoration: none;
-			transition: color .3s ease-in-out,
-		}
-		&__title {
+			transition: color .3s ease-in-out;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			margin: 0;
 			font-size: 16px;
-			display: flex;
-			align-items: center;
-			height: 100%;
+			cursor: pointer;
+			margin-left: 10px;
+		}
+		&__text {
+			padding: 0 10px;
 		}
 		&__logo {
 			width: 30px;
 			height: 30px;
 			border-radius: 50%;
-			vertical-align: middle;
 		}
-	}
-	&-menu {
-		height: 100%;
-		display: flex;
-		list-style: none;
-		margin: 0;
-		&-item {
-			width: 100px;
-			color: #fff;
+
+		&-menu {
 			height: 100%;
-			align-items: center;
-			justify-content: center;
 			display: flex;
-			cursor: pointer;
-			position: relative;
-			transition-property: color;
-			transition-duration: .2s;
-			transition-timing-function: ease-in-out;
-			&:before {
-				content: "";
-				position: absolute;
-				left: 0;
-				width: 100%;
-				bottom: 0;
+			list-style: none;
+			margin: 0;
+			&-item {
+				width: 100px;
+				color: #fff;
+				height: 100%;
+				align-items: center;
+				justify-content: center;
+				display: flex;
+				cursor: pointer;
+				position: relative;
+				transition-property: color;
 				transition-duration: .2s;
 				transition-timing-function: ease-in-out;
-				transition-delay: 0s;
-				transform: scaleX(0);
-				visibility: hidden;
-				border-bottom: 3px solid #fff;
-			}
-			&--active, &:hover {
 				&:before {
-					visibility: visible;
-					transform: scaleX(1);
+					content: "";
+					position: absolute;
+					left: 0;
+					width: 100%;
+					bottom: 0;
+					transition-duration: .2s;
+					transition-timing-function: ease-in-out;
+					transition-delay: 0s;
+					transform: scaleX(0);
+					visibility: hidden;
+					border-bottom: 3px solid #fff;
+				}
+				&--active, &:hover {
+					&:before {
+						visibility: visible;
+						transform: scaleX(1);
+					}
 				}
 			}
 		}
-	}
-	&-nav--dark &-site__link {
-		color: #333;
-	}
-	&-nav--dark &-menu-item {
-		color: #333;
-		&:before {
-			border-bottom: 3px solid #333;
+
+		&--dark {
+			box-shadow: 0 0 10px #333;
+			background: rgba(255, 255, 255, .9);
+			backdrop-filter: blur(10px);
+		}
+		&--dark &-link {
+			color: #333;
+		}
+		&--dark &-menu-item {
+			color: #333;
+			&:before {
+				border-bottom: 3px solid #333;
+			}
 		}
 	}
+
 	&-top {
 		position: relative;
 		color: white;
