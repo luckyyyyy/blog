@@ -49,10 +49,14 @@
 			async getList(label) {
 				this.loading = true;
 				const labels = label || this.$route.params.label;
-				await getIssues({ labels }).then((res) => {
-					this.issues = res.data;
+				try {
+					const res = await getIssues({ labels });
+					const data = await res.json();
+					this.issues = data;
 					this.loading = false;
-				});
+				} catch (e) {
+					// console.log(e);
+				}
 			},
 		},
 		filters: {

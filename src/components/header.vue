@@ -52,10 +52,14 @@
 				fadeBackGround: 'rgba(255, 255, 255, 0)',
 			};
 		},
-		created() {
-			getLabels().then((res) => {
-				this.labels = res.data;
-			});
+		async created() {
+			try {
+				const res = await getLabels();
+				const data = await res.json();
+				this.labels = data;
+			} catch (e) {
+				// console.log(e);
+			}
 		},
 		mounted() {
 			window.addEventListener('scroll', (e) => {

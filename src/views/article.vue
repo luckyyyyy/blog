@@ -31,15 +31,19 @@
 				markdown: '',
 			};
 		},
-		created() {
+		async created() {
 			const number = this.$route.params.article;
-			getIssue(number).then((res) => {
-				this.article = res.data;
-				getMarkdown({ text: res.data.body }).then((markdown) => {
-					this.markdown = markdown.data;
-					this.loading = false;
-				});
-			});
+			try {
+				const res = await getIssue(number);
+				const article = await res.json();
+				this.article = article;
+				const mres = await getMarkdown({ text: article.body });
+				const markdown = await mres.text();
+				this.markdown = markdown;
+				this.loading = false;
+			} catch (e) {
+				// console.log(e);
+			}
 		},
 		filters: {
 			time(val) {
