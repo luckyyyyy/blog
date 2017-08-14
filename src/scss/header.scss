@@ -62,7 +62,7 @@
 					visibility: hidden;
 					border-bottom: 3px solid #fff;
 				}
-				&--active, &:hover {
+				&--active, &:hover:not(.github) {
 					&:before {
 						visibility: visible;
 						transform: scaleX(1);

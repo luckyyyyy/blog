@@ -36,13 +36,20 @@ router.beforeResolve((to, from, next) => {
 	});
 	const asyncDataHooks = activated.map(c => c.asyncData).filter(_ => _);
 	if (!asyncDataHooks.length) {
-		// NProgress.done();
+		bar.finish();
 		next();
 	} else {
 		Promise.all(asyncDataHooks.map(hook => hook({ route: to }))).then(() => {
-			// NProgress.done();
+			bar.finish();
 			next();
-		}).catch(next);
+		}).catch(() => {
+			bar.finish();
+			next();
+		});
 	}
+});
+router.beforeEach(async (to, from, next) => {
+	bar.start();
+	return next();
 });
 export default router;
