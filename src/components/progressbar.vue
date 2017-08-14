@@ -15,7 +15,7 @@ export default {
 			show: false,
 			canSuccess: true,
 			duration: 3000,
-			height: '2px',
+			height: '3px',
 			color: '#5197ff',
 			failedColor: 'red',
 		};
@@ -90,8 +90,9 @@ export default {
 	top: 0;
 	left: 0;
 	right: 0;
-	height: 2px;
+	height: 3px;
 	width: 0%;
+	box-shadow: 0 0 5px #5197ff;
 	transition: width 0.2s, opacity 0.4s;
 	opacity: 1;
 	z-index: 999999;

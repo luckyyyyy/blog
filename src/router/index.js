@@ -5,7 +5,7 @@ import topRoute from '@/router/top';
 import articleRoute from '@/router/article';
 import listRoute from '@/router/list';
 import ProgressBar from '@/components/progressbar';
-
+import store from '@/store';
 import 'normalize.css';
 import '@/scss/index.scss';
 
@@ -29,17 +29,12 @@ const router = new Router({
 
 router.beforeResolve((to, from, next) => {
 	const matched = router.getMatchedComponents(to);
-	const prevMatched = router.getMatchedComponents(from);
-	let diffed = false;
-	const activated = matched.filter((c, i) => {
-		return diffed || (diffed = (prevMatched[i] !== c));
-	});
-	const asyncDataHooks = activated.map(c => c.asyncData).filter(_ => _);
+	const asyncDataHooks = matched.map(c => c.asyncData).filter(_ => _);
 	if (!asyncDataHooks.length) {
 		bar.finish();
 		next();
 	} else {
-		Promise.all(asyncDataHooks.map(hook => hook({ route: to }))).then(() => {
+		Promise.all(asyncDataHooks.map(hook => hook({ route: to, store }))).then(() => {
 			bar.finish();
 			next();
 		}).catch(() => {

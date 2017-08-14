@@ -45,25 +45,21 @@
 		</div>
 	</header>
 </template>
-<!-- backdrop-filter -->
+
 <script>
-	import { getLabels } from '@/api/issues';
+	import { mapState } from 'vuex';
 
 	export default {
 		data() {
 			return {
-				labels: [],
 				dark: false,
 			};
 		},
-		async created() {
-			try {
-				const res = await getLabels();
-				const data = await res.json();
-				this.labels = data;
-			} catch (e) {
-				// console.log(e);
-			}
+		asyncData({ store }) {
+			return store.dispatch('getLabels');
+		},
+		computed: {
+			...mapState(['labels']),
 		},
 		mounted() {
 			window.addEventListener('scroll', (e) => {

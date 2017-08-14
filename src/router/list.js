@@ -2,6 +2,10 @@ export default [
 	{
 		path: '/label/:label',
 		name: 'label',
-		component: () => import('@/views/index.vue'),
+		components: {
+			header: () => import('@/components/header.vue'),
+			main: () => import('@/views/index.vue'),
+			footer: () => import('@/components/footer.vue'),
+		},
 	},
 ];
