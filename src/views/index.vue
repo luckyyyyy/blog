@@ -10,7 +10,7 @@
 			<li><a target="_blank" href="https://www.zhihu.com/people/qingyh/activities">知乎</a></li>
 		</ul>
 		<footer>
-			<p>使用Vue.js 基于GitHub构建</p>
+			<a href="mailto:zjmail.chen@gmail.com">zjmail.chen#gmail.com</a>
 			<p>Copyright © 2017 William Chan. All Rights Reserved</p>
 		</footer>
 	</div>

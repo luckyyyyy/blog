@@ -81,15 +81,33 @@ canvas {
 				color: #999;
 				text-decoration: none;
 				transition: all .3s ease-in-out;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 				&:hover {
 					color: #E46914;
-					font-size: 16px;
+					font-size: 18px;
+				}
+				&::before, &::after {
+					content: "";
+					display: block;
+					width: 0;
+					margin: 0 5px;
+					height: 1px;
+					opacity: 0;
+					background-color: #E46914;
+					transition: all .3s ease-in-out;
+				}
+				&:hover::before, &:hover::after {
+					opacity: 1;
+					width: 25px;
 				}
 			}
 		}
 	}
 	footer {
-		color: #ccc;
+		color: #000;
+		opacity: .4;
 		left: 0;
 		bottom: 0;
 		width: 100%;
