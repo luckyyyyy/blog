@@ -3,9 +3,7 @@ export default [
 		path: '/',
 		name: 'index',
 		components: {
-			header: () => import('@/components/header.vue'),
 			main: () => import('@/views/index.vue'),
-			footer: () => import('@/components/footer.vue'),
 		},
 	},
 	{

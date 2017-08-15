@@ -9,10 +9,10 @@
 				<router-link
 					tag="li"
 					class="header-nav-menu-item"
-					:to="{ name: 'index' }"
+					:to="{ name: 'blog_index' }"
 					:class="{ 'header-nav-menu-item--active': $route.name == 'index' }"
 				>
-					首页
+					全部
 				</router-link>
 				<router-link
 					:class="{ 'header-nav-menu-item--active': $route.params.label == item.name }"

@@ -16,7 +16,7 @@ canvas {
 	z-index: 0;
 	width: 100%;
 	height: auto;
-	opacity: 0.2;
+	opacity: 0.8;
 	pointer-events: none;
 }
 .container {
@@ -44,7 +44,59 @@ canvas {
 		animation-delay: -1.0s;
 	}
 }
-
+.home {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 300px;
+	height: 300px;
+	margin-top: -150px;
+	margin-left: -150px;
+	text-align: center;
+	line-height: 1;
+	user-select: none;
+	h1 {
+		font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+		font-weight: 700;
+		font-size: 30px;
+		letter-spacing: 9px;
+		text-transform: uppercase;
+	}
+	h2 {
+		color: #999;
+		font-weight: normal;
+		font-size: 15px;
+		letter-spacing: .12em;
+		margin-bottom: 30px;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+		li {
+			font-size: 14px;
+			line-height: 2em;
+			margin: 0;
+			letter-spacing: 2px;
+			a {
+				color: #999;
+				text-decoration: none;
+				transition: all .3s ease-in-out;
+				&:hover {
+					color: #E46914;
+					font-size: 16px;
+				}
+			}
+		}
+	}
+	footer {
+		color: #ccc;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+		position: absolute;
+	}
+}
 @keyframes sk-bounce {
 	0%, 100% {
 		transform: scale(0.0);
