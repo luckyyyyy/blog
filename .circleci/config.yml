@@ -34,6 +34,16 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: echo 'ok'
+      - run: git config --global user.email "root@williamchan.me"
+      - run: git config --global user.name "青阳魂"
+      - run: yarn build
+      - run: |
+          cd dist &&
+          echo "williamchan.me" > CNAME &&
+          git init &&
+          git remote add origin git@github.com:luckyyyyy/luckyyyyy.github.io.git &&
+          git add . &&
+          git commit -m "ci" --author="William Chan <root@williamchan.me>" &&
+          git push origin master -f
 
 
