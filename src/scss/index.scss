@@ -44,13 +44,29 @@ canvas {
 		animation-delay: -1.0s;
 	}
 }
+@keyframes rotate {
+	form {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+@keyframes hue {
+	from {
+		filter: hue-rotate(0deg);
+	}
+	to {
+		filter: hue-rotate(-360deg);
+	}
+}
 .home {
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	width: 300px;
-	height: 300px;
-	margin-top: -150px;
+	width: 400px;
+	height: 340px;
+	margin-top: -200px;
 	margin-left: -150px;
 	text-align: center;
 	line-height: 1;
@@ -61,6 +77,8 @@ canvas {
 		font-size: 30px;
 		letter-spacing: 9px;
 		text-transform: uppercase;
+		color: #d0459d;
+		animation: hue 10s infinite linear;
 	}
 	h2 {
 		color: #999;
@@ -83,20 +101,35 @@ canvas {
 				transition: all .3s ease-in-out;
 				display: flex;
 				justify-content: center;
-				align-items: center;
+				align-items: baseline;
 				&:hover {
-					color: #E46914;
 					font-size: 18px;
 				}
+				&:hover.blog {
+					color: #009B00;
+				}
+				&:hover.github {
+					color: #000;
+				}
+				&:hover.weibo {
+					color: red;
+				}
+				&:hover.zhihu {
+					color: rgb(15, 136, 235);
+				}
+				&::before {
+					content: "[";
+				}
+				&::after {
+					content: "]";
+				}
 				&::before, &::after {
-					content: "";
+					font-size: 20px;
 					display: block;
 					width: 0;
-					margin: 0 5px;
-					height: 1px;
 					opacity: 0;
-					background-color: #E46914;
-					transition: all .3s ease-in-out;
+					transition: opacity .3s ease-in-out,
+								width .3s ease-in-out;
 				}
 				&:hover::before, &:hover::after {
 					opacity: 1;
@@ -113,6 +146,9 @@ canvas {
 		width: 100%;
 		text-align: center;
 		position: absolute;
+		code {
+			user-select: all;
+		}
 	}
 }
 @keyframes sk-bounce {

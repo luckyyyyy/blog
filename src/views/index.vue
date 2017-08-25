@@ -4,14 +4,16 @@
 		<h1>青阳魂</h1>
 		<h2>未来不迎 当时不杂 过往不恋</h2>
 		<ul>
-			<li><router-link tag="a" :to="{ name: 'blog_index' }">Blog</router-link></li>
-			<li><a target="_blank" href="https://github.com/luckyyyyy">GitHub</a></li>
-			<li><a target="_blank" href="https://weibo.com/techvicky">WeiBo</a></li>
-			<li><a target="_blank" href="https://www.zhihu.com/people/qingyh/activities">知乎</a></li>
+			<li><router-link class="blog" :to="{ name: 'blog_index' }">Blog</router-link></li>
+			<li><a class="github" target="_blank" href="https://github.com/luckyyyyy">GitHub</a></li>
+			<li><a class="weibo" target="_blank" href="https://weibo.com/techvicky">WeiBo</a></li>
+			<li><a class="zhihu" target="_blank" href="https://www.zhihu.com/people/qingyh/activities">知乎</a></li>
 		</ul>
 		<footer>
-			<a href="mailto:zjmail.chen@gmail.com">zjmail.chen#gmail.com</a>
-			<p>Copyright © 2017 William Chan. All Rights Reserved</p>
+			<div><code>cm9vdEB3aWxsaWFtY2hhbi5tZQo=</code></div>
+			<div><code>MTgwNTcxNzYwNTAK</code></div>
+			<p>If you are interested in it, please let me know by my email.</p>
+			<!-- <p>Copyright © 2017 William Chan. All Rights Reserved</p> -->
 		</footer>
 	</div>
 </template>
