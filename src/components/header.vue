@@ -3,7 +3,7 @@
 		<nav class="header-nav" :class="{ 'header-nav--dark': dark }">
 			<router-link tag="h1" class="header-nav-link" :to="{ name: 'index' }">
 				<img class="header-nav__logo" src="../assets/logo.png">
-				<span class="header-nav__text">BLOG</span>
+				<span class="header-nav__text">root@william ~</span>
 			</router-link>
 			<menu class="header-nav-menu">
 				<router-link
@@ -63,7 +63,7 @@
 		},
 		mounted() {
 			window.addEventListener('scroll', (e) => {
-				const scrollTop = e.target.body.scrollTop;
+				const scrollTop = e.target.documentElement.scrollTop;
 				this.dark = scrollTop > 50;
 			});
 		},
