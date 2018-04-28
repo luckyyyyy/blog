@@ -1,7 +1,7 @@
 var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
-var vueLoaderConfig = require('./vue-loader.conf')
+var { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
   entry: {
@@ -35,7 +35,11 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: vueLoaderConfig
+        options: {
+           compilerOptions: {
+             preserveWhitespace: false
+           }
+        }
       },
       {
         test: /\.js$/,
@@ -59,5 +63,8 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+   new VueLoaderPlugin(),
+  ]
 }

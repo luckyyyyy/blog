@@ -27,6 +27,10 @@ const router = new Router({
 	},
 });
 
+router.onReady(() => {
+	document.getElementById('loading').className = 'loading hide';
+});
+
 router.beforeResolve((to, from, next) => {
 	const matched = router.getMatchedComponents(to);
 	const asyncDataHooks = matched.map(c => c.asyncData).filter(_ => _);
