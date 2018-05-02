@@ -70,6 +70,6 @@ exports.styleLoaders = function (options) {
       test: new RegExp('\\.' + extension + '$'),
       use: loader
     })
-  }
+	}
   return output
 }

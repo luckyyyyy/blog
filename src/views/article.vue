@@ -16,7 +16,7 @@
 <script>
 	import moment from 'moment';
 	import { mapState } from 'vuex';
-	import 'github-markdown-css';
+	import 'github-markdown-css/github-markdown.css';
 
 	export default {
 		asyncData({ store, route }) {
