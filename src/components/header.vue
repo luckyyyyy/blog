@@ -39,7 +39,7 @@
 			<div class="header-top__title">青阳魂的weblog</div>
 			<div class="header-top__desc">
 				<img src="../assets/logo.png" class="header-top__avatar">
-				<p>未来不迎 当时不杂 过往不恋</p>
+				<p>写代码不赚钱 就交个朋友</p>
 				<p>思绪来得快去得也快 偶尔会在这里停留</p>
 			</div>
 		</div>
