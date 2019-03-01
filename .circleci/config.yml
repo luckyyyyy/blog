@@ -38,7 +38,7 @@ jobs:
       - run: git config --global user.name "青阳魂"
       - run: yarn build
       - run: |
-          cd dist &&
+          cd build &&
           echo "williamchan.me" > CNAME &&
           git init &&
           git remote add origin git@github.com:luckyyyyy/luckyyyyy.github.io.git &&
