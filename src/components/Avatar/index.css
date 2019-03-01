@@ -1,0 +1,41 @@
+.avatar {
+  padding-top: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.avatar .point-wrapper {
+  position: absolute;
+}
+.avatar .point {
+  border-radius: 100%;
+}
+.avatar .right-side {
+  width: 70%;
+  height: auto;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+.avatar .right-side * {
+  pointer-events: none;
+}
+.avatar .avatar-img {
+  width: 70%;
+  align-self: center;
+  opacity: 0;
+  animation: fadeIn 1s .6s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  0% {
+  opacity: 0;
+  }
+  100% {
+  opacity: .8;
+  }
+}

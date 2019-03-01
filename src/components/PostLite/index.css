@@ -1,0 +1,37 @@
+.post-item {
+  max-height: 400px;
+  overflow: hidden;
+  margin-bottom: 100px;
+  position: relative;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #ccc;
+}
+
+.post-item::after {
+  height: 200px;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0), #fff);
+}
+
+.post-link {
+  color: #000;
+  text-decoration: none;
+}
+.post-link:hover {
+  color: #3996ff;
+}
+
+.post-item-title {
+  padding: 20px 0;
+  font-size: 48px;
+}
+
+.post-item-body {
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: normal;
+}

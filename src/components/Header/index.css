@@ -1,0 +1,99 @@
+header {
+  width: 300px;
+  background: #252526;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+header .name {
+  padding: 25px;
+  color: #fff;
+  font-size: 38px;
+  text-align: center;
+}
+
+header .sign {
+  color: #ccc;
+  font-size: 16px;
+  letter-spacing: .12em;
+  text-align: center;
+  font-family: Helvetica;
+  padding: 10px;
+}
+
+header .sns {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: #ccc;
+  text-align: center;
+}
+
+header .sns li {
+  font-size: 14px;
+  line-height: 2em;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+header .sns li a {
+  color: #ccc;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+header .sns li a:hover {
+  font-size: 18px;
+  transition: all .3s ease-in-out;
+}
+header .sns li a:hover.blog {
+  color: #009B00;
+}
+header .sns li a:hover.github {
+  color: #fff;
+}
+header .sns li a:hover.weibo {
+  color: red;
+}
+header .sns li a:hover.zhihu {
+  color: rgb(15, 136, 235);
+}
+header .sns li a::before {
+  content: "[";
+}
+header .sns li a::after {
+  content: "]";
+}
+header .sns li a::before, header .sns li a::after {
+  font-size: 20px;
+  display: block;
+  width: 0;
+  opacity: 0;
+  transition: opacity .3s ease-in-out,
+        width .3s ease-in-out;
+}
+header .sns li a:hover::before, header .sns li a:hover::after {
+  opacity: 1;
+  width: 25px;
+}
+
+header .qrcode {
+  max-height: 300px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+header .bottom {
+  color: #ddd;
+  padding: 10px;
+  text-align: center;
+  font-family: Helvetica;
+  font-size: 12px;
+}

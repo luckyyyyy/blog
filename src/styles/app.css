@@ -1,0 +1,9 @@
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+.main {
+  max-width: 100%;
+  padding: 20px;
+  padding-left: 320px;
+}
