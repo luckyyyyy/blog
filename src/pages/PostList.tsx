@@ -27,15 +27,14 @@ export default class PostList extends Component {
     }
     const children = this.state.list.map((item: IssueProps) => {
       return (
-          <PostLite key={item.id} {...item} />
+        <PostLite key={item.id} {...item} />
       );
-
     });
     return (
-      <ul>
-        <QueueAnim type="bottom" delay={200} className="queue-simple">
-          { children }
-        </QueueAnim>
+      <ul className="post-list">
+        <QueueAnim type="top" delay={200} className="queue-simple">
+					{ children }
+				</QueueAnim>
       </ul>
     );
   }

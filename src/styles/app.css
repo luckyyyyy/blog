@@ -3,7 +3,14 @@
   min-height: 100vh;
 }
 .main {
+	flex: 1;
   max-width: 100%;
   padding: 20px;
-  padding-left: 320px;
+	padding-left: 320px;
+	background: #eee;
+}
+
+.main .post-list {
+  margin: 0;
+  padding: 0;
 }

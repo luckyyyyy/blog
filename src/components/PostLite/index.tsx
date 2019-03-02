@@ -14,6 +14,9 @@ export interface IssueProps {
 };
 
 export default class PostLite extends Component<IssueProps> {
+  state = {
+    selected: false
+  }
 
   constructor(props: IssueProps) {
     super(props);
