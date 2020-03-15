@@ -1,0 +1,120 @@
+.header {
+  background: #363637;
+  z-index: 1;
+  height: 40px;
+  border-bottom: 2px solid #434445;
+  box-shadow: 0 0 10px 0 #222;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  justify-content: space-between;
+  font-family: Consolas, Monaco, monospace;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  &-left, &-right {
+    display: flex;
+    align-items: center;
+  }
+  &-left {
+    flex: 1;
+  }
+  &-avatar {
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    transform: rotate(0deg);
+    transition: all .5s ease-in-out;
+    margin-right: 10px;
+    &:hover {
+      transform: rotate(360deg);
+    }
+  }
+  &-terminal {
+    display: flex;
+    // align-items: center;
+    &-ansi_pink {
+      color: rgb(255, 0, 255);
+    }
+    &-ansi_green {
+      color: rgb(0, 255, 0);
+    }
+    &-ansi_red {
+      color: rgb(255, 0, 0);
+    }
+    &-cursor {
+      margin-left: 5px;
+      display: inline-block;
+      width: 1px;
+      height: auto;
+      background: #fff;
+      opacity: 0;
+      animation: cursor 1s infinite;
+      @keyframes cursor {
+        0%, 100% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+    }
+    &-placeholder {
+      user-select: none;
+      color: #888;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      word-break: break-all;
+      // margin-left: -1px;
+    }
+  }
+  &-links {
+    display: flex;
+    align-items: baseline;
+    a {
+      text-align: center;
+      width: 90px;
+      color: #ccc;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        font-size: 16px;
+      }
+      &::before, &::after {
+        font-size: 18px;
+        display: block;
+        width: 0;
+        opacity: 0;
+        transition: opacity .3s ease-in-out,
+              width .3s ease-in-out;
+      }
+      &::before {
+        content: "[";
+      }
+      &::after {
+        content: "]";
+      }
+      &:hover::before, &:hover::after {
+        opacity: 1;
+        width: 25px;
+      }
+    }
+    &-weibo:hover {
+      color: red;
+    }
+    &-zhihu:hover {
+      color: rgb(15, 136, 235);
+    }
+    &-github:hover {
+      color: #000;
+    }
+  }
+}

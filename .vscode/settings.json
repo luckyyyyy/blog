@@ -1,0 +1,62 @@
+{
+  "psi-header.changes-tracking": {
+    "isActive": true,
+    "exclude": [
+      "markdown",
+      "json",
+      "html",
+      "vue"
+    ],
+    "autoHeader": "off"
+  },
+  "psi-header.lang-config": [{
+      "language": "javascript",
+      "begin": "/**",
+      "prefix": " * ",
+      "end": " */"
+    },
+    {
+      "language": "typescript",
+      "mapTo": "javascript"
+    },
+    {
+      "language": "css",
+      "mapTo": "javascript"
+    },
+    {
+      "language": "less",
+      "mapTo": "javascript"
+    },
+    {
+      "language": "scss",
+      "mapTo": "javascript"
+    },
+    {
+      "language": "sass",
+      "mapTo": "javascript"
+    }
+  ],
+  "psi-header.templates": [{
+    "language": "*",
+    "template": [
+      "This file is part of the Blog.",
+      "@author   : <<author>> (<<authoremail>>)",
+    ]
+  }],
+  "jumpToAliasFile.alias": {
+    "@": "${folder}/src",
+  },
+  "path-autocomplete.pathMappings": {
+    "@": "${folder}/src", // the absolute root folder is now /src,
+  },
+  "eslint.validate": [
+    "typescript", "typescriptreact", "javascript", "javascriptreact", "vue"
+  ],
+  "eslint.options": {
+    "configFile": ".eslintrc.js",
+  },
+  "stylelint.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  } // 还没有自动修复功能 先禁了
+}

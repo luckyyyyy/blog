@@ -1,0 +1,99 @@
+.post-item {
+  max-height: 400px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  position: relative;
+  border: 1px solid #D5D5D5;
+  box-shadow: 3px 3px 3px rgb(204, 204, 204);
+  background: #E5E5E5;
+  border-radius: 10px;
+  padding: 20px;
+  transition: box-shadow .5s ease-in-out;
+}
+.post-item:hover {
+  box-shadow: 3px 3px 20px #999;
+}
+.post-item::after {
+  height: 30%;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0), #E5E5E5);
+}
+.post-item:hover::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: "Read on →";
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  z-index: 1;
+}
+
+.post-link {
+  /* color: #000; */
+  display: block;
+  text-decoration: none;
+}
+.post-link:hover {
+  color: #3996ff;
+}
+
+.post-item-title {
+  padding: 10px 0;
+  line-height: 1.2;
+  font-size: 30px;
+}
+.post-item-title::after {
+  content: "";
+  border-bottom: 1px solid rgb(197, 197, 197);
+  width: 100%;
+  height: 1px;
+  display: inline-block;
+}
+.post-item-body {
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .post-item {
+    border: 1px solid #434445;
+    background: #1E1E1E;
+    box-shadow: none;
+  }
+  .post-item::after {
+    background: linear-gradient(rgba(255, 255, 255, 0), #1E1E1E);
+  }
+  .post-item:hover {
+    box-shadow: 3px 3px 20px #1E1E1E;
+  }
+  .post-item-title::after {
+    border-bottom: 1px solid #434445;
+  }
+  .markdown-body {
+    color: #fff;
+  }
+  .markdown-body table tr {
+    background-color: #1E1E1E;
+  }
+  .markdown-body table tr:nth-child(2n) {
+    background-color: #2F3031;
+  }
+  .markdown-body .highlight pre, .markdown-body pre {
+    background-color: #2F3031;
+  }
+  .markdown-body h1, .markdown-body h2 {
+    border-bottom: 1px solid #434445;
+  }
+  .markdown-body table td, .markdown-body table th {
+    border: 1px solid #434445;
+  }
+}
