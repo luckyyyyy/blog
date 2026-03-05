@@ -1,5 +1,5 @@
 import { marked } from 'marked'
-import 'github-markdown-css/github-markdown-light.css'
+import 'github-markdown-css/github-markdown.css'
 import type { Issue } from '../api'
 import './Post.css'
 
@@ -28,6 +28,9 @@ export default function Post({ issue }: PostProps) {
         </div>
         <div
           className="post-body markdown-body"
+          data-color-mode="auto"
+          data-light-theme="light"
+          data-dark-theme="dark"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </article>

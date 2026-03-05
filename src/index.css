@@ -11,13 +11,13 @@ body {
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #f5f5f7;
-  color: #1d1d1f;
+  background: #fafafa;
+  color: #111;
   transition: background 0.3s, color 0.3s;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #1d1d1f;
+  color: #111;
 }
 
 a {
@@ -27,7 +27,7 @@ a {
 }
 
 a:hover {
-  color: #0077ed;
+  color: #0058b0;
 }
 
 code {
@@ -42,11 +42,19 @@ code {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background: #1d1d1f;
-    color: #f5f5f7;
+    background: #0c0c0c;
+    color: #f0f0f0;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: #f5f5f7;
+    color: #f0f0f0;
+  }
+
+  a {
+    color: #4da3ff;
+  }
+
+  a:hover {
+    color: #6db8ff;
   }
 }
