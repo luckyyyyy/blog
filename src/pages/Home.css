@@ -1,0 +1,42 @@
+.home {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.home-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 32px;
+  letter-spacing: -0.5px;
+}
+
+.home-loading,
+.home-error {
+  text-align: center;
+  padding: 60px 0;
+  font-size: 16px;
+  color: #86868b;
+}
+
+.home-error {
+  color: #ff3b30;
+}
+
+.post-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding: 24px 0;
+  }
+
+  .home-title {
+    font-size: 26px;
+    margin-bottom: 24px;
+  }
+}

@@ -1,0 +1,140 @@
+.header {
+  background: #1a1a1b;
+  z-index: 100;
+  height: 44px;
+  border-bottom: 2px solid #333;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  justify-content: space-between;
+  font-family: 'SF Mono', SFMono-Regular, Consolas, Monaco, monospace;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.header-avatar {
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border-radius: 50%;
+  transform: rotate(0deg);
+  transition: transform 0.5s ease-in-out;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.header-avatar:hover {
+  transform: rotate(360deg);
+}
+
+.header-terminal {
+  display: flex;
+  color: #aaa;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.header-terminal .ansi-pink {
+  color: #ff79c6;
+}
+
+.header-terminal .ansi-green {
+  color: #50fa7b;
+}
+
+.header-terminal .ansi-red {
+  color: #ff5555;
+}
+
+.header-terminal .cursor {
+  margin-left: 5px;
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  background: #fff;
+  opacity: 0;
+  animation: cursor-blink 1s infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.header-terminal .placeholder {
+  user-select: none;
+  color: #666;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.header-links {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.header-links a {
+  text-align: center;
+  width: 80px;
+  color: #ccc;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  transition: all 0.25s ease;
+  font-size: 13px;
+  padding: 2px 0;
+}
+
+.header-links a::before,
+.header-links a::after {
+  font-size: 16px;
+  display: block;
+  width: 0;
+  opacity: 0;
+  transition: opacity 0.25s ease, width 0.25s ease;
+}
+
+.header-links a::before { content: "["; }
+.header-links a::after { content: "]"; }
+
+.header-links a:hover::before,
+.header-links a:hover::after {
+  opacity: 1;
+  width: 20px;
+}
+
+.header-links a:hover {
+  font-size: 14px;
+}
+
+.header-links .link-weibo:hover { color: #e6162d; }
+.header-links .link-zhihu:hover { color: #0084ff; }
+.header-links .link-github:hover { color: #f0f0f0; }
+
+@media (max-width: 768px) {
+  .header-terminal .placeholder {
+    display: none;
+  }
+  .header-links a {
+    width: 60px;
+    font-size: 12px;
+  }
+}

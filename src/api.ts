@@ -1,0 +1,25 @@
+const GITHUB_API = 'https://api.github.com'
+const OWNER = 'luckyyyyy'
+const REPO = 'Blog'
+
+export interface Issue {
+  id: number
+  title: string
+  body: string
+  html_url: string
+  created_at: string
+  user: {
+    login: string
+    avatar_url: string
+  }
+  labels: Array<{
+    name: string
+    color: string
+  }>
+}
+
+export async function getIssues(): Promise<Issue[]> {
+  const res = await fetch(`${GITHUB_API}/repos/${OWNER}/${REPO}/issues?state=open&per_page=20`)
+  if (!res.ok) throw new Error(`Failed to fetch issues: ${res.status}`)
+  return res.json()
+}
