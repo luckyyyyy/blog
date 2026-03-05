@@ -6,7 +6,7 @@ export default function About() {
       <section className="about-hero">
         <img className="about-avatar" src="/assets/avatar.png" alt="avatar" />
         <div className="about-hero-text">
-          <h1 className="about-name">William Chan &middot; 青阳魊</h1>
+          <h1 className="about-name">William Chan</h1>
           <p className="about-role">Full Stack Developer · AI Agent Engineer</p>
           <div className="about-links">
             <a className="about-link-btn" target="_blank" rel="noopener noreferrer" href="https://github.com/luckyyyyy">
