@@ -13,17 +13,20 @@
   overflow: hidden;
   margin-bottom: 20px;
   position: relative;
-  background: #fff;
-  border: 1px solid #e8e8e8;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(220, 220, 220, 0.65);
   border-radius: 14px;
   padding: 28px 30px;
   transition: box-shadow 0.25s ease, transform 0.2s ease, border-color 0.25s ease;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
 }
 
 .post-card:hover {
-  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.09);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
-  border-color: #d0d0d0;
+  border-color: rgba(180, 180, 180, 0.7);
 }
 
 .post-card::after {
@@ -33,7 +36,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(transparent, #fff);
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.88));
   pointer-events: none;
   border-radius: 0 0 14px 14px;
 }
@@ -94,17 +97,18 @@
 
 @media (prefers-color-scheme: dark) {
   .post-card {
-    background: #161616;
-    border-color: #2a2a2a;
+    background: rgba(20, 20, 20, 0.6);
+    border-color: rgba(50, 50, 50, 0.6);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
   }
 
   .post-card:hover {
-    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.4);
-    border-color: #3a3a3a;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border-color: rgba(70, 70, 70, 0.7);
   }
 
   .post-card::after {
-    background: linear-gradient(transparent, #161616);
+    background: linear-gradient(transparent, rgba(16, 16, 16, 0.88));
   }
 
   .post-card:hover::before {
