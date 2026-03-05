@@ -10,8 +10,7 @@ export default function Header() {
           <span className="header-name">青阳魂</span>
         </Link>
         <nav className="header-nav">
-          <Link to="/">Blog</Link>
-          <Link to="/about">About</Link>
+          <Link to="/blog">Blog</Link>
           <a target="_blank" rel="noopener noreferrer" href="https://github.com/luckyyyyy">GitHub</a>
         </nav>
       </div>

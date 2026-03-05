@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { marked } from 'marked'
 import 'github-markdown-css/github-markdown.css'
 import type { Issue } from '../api'
@@ -11,7 +12,7 @@ export default function Post({ issue }: PostProps) {
   const html = marked.parse(issue.body || '') as string
 
   return (
-    <a className="post-link" target="_blank" rel="noopener noreferrer" href={issue.html_url}>
+    <Link className="post-link" to={`/post/${issue.number}`}>
       <article className="post-card">
         <h2 className="post-title">{issue.title}</h2>
         <div className="post-meta">
@@ -34,6 +35,6 @@ export default function Post({ issue }: PostProps) {
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </article>
-    </a>
+    </Link>
   )
 }

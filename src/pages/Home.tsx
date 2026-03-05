@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <div className="home">
-      <h1 className="home-title">青阳魂的博客</h1>
+      <h2 className="home-section-title">文章</h2>
       {loading && <div className="home-loading">Loading...</div>}
       {error && <div className="home-error">Failed to load posts</div>}
       <div className="post-list">
