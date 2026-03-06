@@ -28,19 +28,23 @@ export default function About() {
           <ul className="ai-native-list">
             <li>
               <span className="ai-dot" />
-              <span><strong>Vibe Coding</strong> — 以自然语言描述需求，让 AI Agent（GitHub Copilot、Claude）生成、迭代、重构代码，专注于架构与产品思考</span>
+              <span><strong>Vibe Coding</strong> — 以自然语言驱动整个开发周期：需求拆解、代码生成、重构、测试一气呵成，专注架构决策而非语法细节</span>
             </li>
             <li>
               <span className="ai-dot" />
-              <span><strong>Agent 驱动开发</strong> — 使用 AI Agent 自主完成完整功能模块，包括测试、文档、CI 配置，将工程产出效率提升 10x</span>
+              <span><strong>Agent 开发</strong> — 设计并实现多步骤 AI Agent 工作流，结合 Function Calling、Tool Use 与任务规划，构建能自主完成复杂工程任务的智能体系统</span>
             </li>
             <li>
               <span className="ai-dot" />
-              <span><strong>多模型协作</strong> — 根据任务特性在 Claude Sonnet、GPT-4o、Gemini、DeepSeek 之间灵活切换，构建 AI 工具链工作流</span>
+              <span><strong>RAG 与知识工程</strong> — 构建检索增强生成（RAG）pipeline，融合向量数据库、文档解析与上下文管理，打造私有知识库问答与智能检索应用</span>
             </li>
             <li>
               <span className="ai-dot" />
-              <span><strong>MCP 生态</strong> — 深度使用 Model Context Protocol，将代码库、设计稿、文档接入 AI 上下文，实现真正的全链路智能辅助</span>
+              <span><strong>Skill / Tool 构建</strong> — 为 AI Agent 开发自定义 Skill 与 Tool，设计结构化输入输出协议，扩展模型能力边界，接入真实世界系统</span>
+            </li>
+            <li>
+              <span className="ai-dot" />
+              <span><strong>MCP 生态</strong> — 深度使用 Model Context Protocol，将代码库、设计稿、文档无缝接入 AI 上下文，实现全链路智能辅助</span>
             </li>
           </ul>
         </div>
