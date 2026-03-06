@@ -307,10 +307,29 @@
   font-weight: 500;
 }
 
+.project-card-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
 .project-stars {
   font-size: 13px;
   color: #f5a623;
   font-weight: 500;
+}
+
+.project-since {
+  font-size: 12px;
+  color: #bbb;
+  font-weight: 400;
+}
+
+@media (prefers-color-scheme: dark) {
+  .project-since {
+    color: #555;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
