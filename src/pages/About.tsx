@@ -70,7 +70,11 @@ export default function About() {
         >
           <div className="project-card-header">
             <span className="project-name">miu2d</span>
-            <span className="project-live">miu2d.com ↗</span>
+            <div className="project-card-right">
+              <span className="project-since">since Jan 2026</span>
+              <span className="project-stars">★ 21</span>
+              <span className="project-live">miu2d.com ↗</span>
+            </div>
           </div>
           <p className="project-desc">
             176,000 行代码从零打造的 2D ARPG 游戏引擎——原生 WebGL，零游戏框架依赖。
@@ -95,7 +99,10 @@ export default function About() {
           >
             <div className="project-card-header">
               <span className="project-name">JH · 菊花插件集</span>
-              <span className="project-stars">★ 87</span>
+              <div className="project-card-right">
+                <span className="project-since">since Dec 2014</span>
+                <span className="project-stars">★ 87</span>
+              </div>
             </div>
             <p className="project-desc">
               《剑侠情缘网络版叁》开源游戏插件框架，专注 PVE 玩法。Lua 实现，覆盖冷却监控、副本助手、伤害统计、团队工具等十余个功能模块，50+ Fork。
@@ -115,6 +122,10 @@ export default function About() {
           >
             <div className="project-card-header">
               <span className="project-name">node-opencv</span>
+              <div className="project-card-right">
+                <span className="project-since">since Nov 2024</span>
+                <span className="project-stars">★ 2</span>
+              </div>
             </div>
             <p className="project-desc">
               基于 Rust + NAPI-RS 封装的 Node.js OpenCV 原生扩展。提供模板匹配、图像识别等计算机视觉能力，供 Node.js / Electron 应用直接调用。
@@ -135,6 +146,10 @@ export default function About() {
           >
             <div className="project-card-header">
               <span className="project-name">node-system-proxy</span>
+              <div className="project-card-right">
+                <span className="project-since">since Apr 2022</span>
+                <span className="project-stars">★ 13</span>
+              </div>
             </div>
             <p className="project-desc">
               通过 macOS / Windows 系统原生 API 控制系统代理开关的 Node.js 扩展，Objective-C + C 实现。常用于 Electron 应用内一键切换系统代理。
@@ -155,7 +170,10 @@ export default function About() {
           >
             <div className="project-card-header">
               <span className="project-name">Lienol/openwrt</span>
-              <span className="project-stars">★ 3.6k</span>
+              <div className="project-card-right">
+                <span className="project-since">since Feb 2020</span>
+                <span className="project-stars">★ 3.6k</span>
+              </div>
             </div>
             <p className="project-desc">
               主流 OpenWrt 改版固件，面向嵌入式路由器设备的 Linux 系统。集成丰富软件包生态，支持深度定制，被 1.8k+ 开发者 Fork。
