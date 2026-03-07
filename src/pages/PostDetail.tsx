@@ -34,7 +34,7 @@ export default function PostDetail() {
     </div>
   )
 
-  const html = marked.parse(issue.body || '') as string
+  const html = (marked.parse(issue.body || '') as string).replace(/^<h1[^>]*>.*?<\/h1>\s*/i, '')
 
   return (
     <div className="post-detail">
