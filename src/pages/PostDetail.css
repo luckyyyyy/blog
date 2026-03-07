@@ -39,8 +39,10 @@
 }
 
 .detail-article {
-  background: #fff;
-  border: 1px solid #e8e8e8;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(220, 220, 220, 0.55);
   border-radius: 16px;
   padding: 44px 48px;
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.06);
@@ -48,8 +50,8 @@
 
 @media (prefers-color-scheme: dark) {
   .detail-article {
-    background: #161616;
-    border-color: #2a2a2a;
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
     box-shadow: 0 4px 32px rgba(0, 0, 0, 0.35);
   }
 }

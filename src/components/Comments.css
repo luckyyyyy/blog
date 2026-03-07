@@ -1,7 +1,9 @@
 .comments-section {
   margin-top: 32px;
-  background: #fff;
-  border: 1px solid #e8e8e8;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(220, 220, 220, 0.55);
   border-radius: 16px;
   padding: 32px 48px;
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.06);
@@ -9,8 +11,8 @@
 
 @media (prefers-color-scheme: dark) {
   .comments-section {
-    background: #161616;
-    border-color: #2a2a2a;
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
     box-shadow: 0 4px 32px rgba(0, 0, 0, 0.35);
   }
 }
@@ -118,15 +120,17 @@
 .comment-body {
   flex: 1;
   min-width: 0;
-  background: #f6f8fa;
-  border: 1px solid rgba(0, 0, 0, 0.07);
+  background: rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 10px;
   padding: 16px 20px;
 }
 
 @media (prefers-color-scheme: dark) {
   .comment-body {
-    background: #1e1e1e;
+    background: rgba(255, 255, 255, 0.04);
     border-color: rgba(255, 255, 255, 0.07);
   }
 }
