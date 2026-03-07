@@ -20,8 +20,8 @@ export interface Issue {
   }>
 }
 
-export async function getIssues(): Promise<Issue[]> {
-  const res = await fetch(`${GITHUB_API}/repos/${OWNER}/${REPO}/issues?state=open&per_page=20`)
+export async function getIssues(page = 1, perPage = 20): Promise<Issue[]> {
+  const res = await fetch(`${GITHUB_API}/repos/${OWNER}/${REPO}/issues?state=open&per_page=${perPage}&page=${page}`)
   if (!res.ok) throw new Error(`Failed to fetch issues: ${res.status}`)
   return res.json()
 }
