@@ -30,3 +30,21 @@ export async function getIssue(number: number): Promise<Issue> {
   if (!res.ok) throw new Error(`Failed to fetch issue: ${res.status}`)
   return res.json()
 }
+
+export interface Comment {
+  id: number
+  body: string
+  created_at: string
+  html_url: string
+  user: {
+    login: string
+    avatar_url: string
+    html_url: string
+  }
+}
+
+export async function getIssueComments(number: number): Promise<Comment[]> {
+  const res = await fetch(`${GITHUB_API}/repos/${OWNER}/${REPO}/issues/${number}/comments`)
+  if (!res.ok) throw new Error(`Failed to fetch comments: ${res.status}`)
+  return res.json()
+}

@@ -1,21 +1,27 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { marked } from 'marked'
-import { getIssue } from '../api'
-import type { Issue } from '../api'
+import { getIssue, getIssueComments } from '../api'
+import type { Issue, Comment } from '../api'
+import Comments from '../components/Comments'
 import 'github-markdown-css/github-markdown.css'
 import './PostDetail.css'
 
 export default function PostDetail() {
   const { number } = useParams<{ number: string }>()
   const [issue, setIssue] = useState<Issue | null>(null)
+  const [comments, setComments] = useState<Comment[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     if (!number) return
-    getIssue(parseInt(number))
-      .then(setIssue)
+    const n = parseInt(number)
+    Promise.all([getIssue(n), getIssueComments(n)])
+      .then(([issue, comments]) => {
+        setIssue(issue)
+        setComments(comments)
+      })
       .catch(e => setError(e.message))
       .finally(() => setLoading(false))
   }, [number])
@@ -65,6 +71,7 @@ export default function PostDetail() {
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </article>
+      <Comments comments={comments} issueUrl={issue.html_url} />
     </div>
   )
 }
