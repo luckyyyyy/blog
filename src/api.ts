@@ -44,8 +44,8 @@ export interface Comment {
   }
 }
 
-export async function getIssueComments(number: number): Promise<Comment[]> {
-  const res = await fetch(`${GITHUB_API}/repos/${OWNER}/${REPO}/issues/${number}/comments`)
+export async function getIssueComments(number: number, page = 1, perPage = 30): Promise<Comment[]> {
+  const res = await fetch(`${GITHUB_API}/repos/${OWNER}/${REPO}/issues/${number}/comments?per_page=${perPage}&page=${page}`)
   if (!res.ok) throw new Error(`Failed to fetch comments: ${res.status}`)
   return res.json()
 }
