@@ -7,6 +7,15 @@ import '../styles/Home.css'
 export const metadata: Metadata = {
   title: 'Blog - William Chan',
   description: 'Articles about web development, AI, and engineering by William Chan',
+  alternates: {
+    canonical: 'https://william.im/blog',
+  },
+  openGraph: {
+    title: 'Blog - William Chan',
+    description: 'Articles about web development, AI, and engineering by William Chan',
+    url: 'https://william.im/blog',
+    siteName: 'William Chan',
+  },
 }
 
 const PER_PAGE = 20

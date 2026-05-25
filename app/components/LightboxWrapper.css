@@ -1,0 +1,8 @@
+.lightbox-img {
+  cursor: zoom-in;
+  transition: opacity 0.15s;
+}
+
+.lightbox-img:hover {
+  opacity: 0.85;
+}

@@ -107,6 +107,13 @@
   background: transparent !important;
 }
 
+.detail-body.markdown-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 12px 0;
+}
+
 /* post-label reused from Post.css */
 .post-label {
   padding: 1px 8px;

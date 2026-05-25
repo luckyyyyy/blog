@@ -39,4 +39,18 @@ const marked = new Marked(
   }),
 )
 
+// Strip explicit width/height from images to prevent aspect ratio issues,
+// and add lazy loading for off-screen images.
+const originalParse = marked.parse as (src: string, options?: unknown) => string
+marked.parse = function (src: string, options?: unknown): string {
+  const html = originalParse(src, options)
+  return html
+    .replace(/<img\b([^>]*)>/g, (_match, attrs: string) => {
+      const cleaned = attrs
+        .replace(/\s+width\s*=\s*["'][^"']*["']/gi, '')
+        .replace(/\s+height\s*=\s*["'][^"']*["']/gi, '')
+      return `<img${cleaned} loading="lazy">`
+    })
+} as typeof marked.parse
+
 export { marked }
