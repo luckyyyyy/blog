@@ -9,8 +9,6 @@ on:
 jobs:
   lint-and-build:
     runs-on: ubuntu-latest
-    env:
-      PNPM_STRICT: false
     steps:
       - uses: actions/checkout@v4
 
@@ -23,6 +21,6 @@ jobs:
           node-version: 22
           cache: pnpm
 
-      - run: pnpm install --frozen-lockfile
+      - run: pnpm install
       - run: pnpm lint
       - run: pnpm build
