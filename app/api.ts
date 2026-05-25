@@ -26,6 +26,15 @@ export async function getIssues(page = 1, perPage = 20): Promise<Issue[]> {
   return res.json()
 }
 
+export async function getIssuesPage(page = 1, perPage = 20): Promise<{ issues: Issue[]; hasNext: boolean }> {
+  const res = await fetch(`${GITHUB_API}/repos/${OWNER}/${REPO}/issues?state=open&creator=${OWNER}&per_page=${perPage}&page=${page}`, { next: { revalidate: 600 } })
+  if (!res.ok) throw new Error(`Failed to fetch issues: ${res.status}`)
+  const issues: Issue[] = await res.json()
+  const link = res.headers.get('Link') || ''
+  const hasNext = link.includes('rel="next"')
+  return { issues, hasNext }
+}
+
 export async function getIssue(number: number): Promise<Issue> {
   const res = await fetch(`${GITHUB_API}/repos/${OWNER}/${REPO}/issues/${number}`, { next: { revalidate: 600 } })
   if (!res.ok) throw new Error(`Failed to fetch issue: ${res.status}`)

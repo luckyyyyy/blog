@@ -1,20 +1,24 @@
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { marked } from '../../lib/marked'
-import { getIssue, getIssues } from '../../api'
-import Comments from '../../components/Comments'
+import { marked } from '../../../lib/marked'
+import { toSlug } from '../../../lib/slug'
+import { getIssue, getIssues } from '../../../api'
+import Comments from '../../../components/Comments'
 import 'github-markdown-css/github-markdown.css'
-import '../../styles/PostDetail.css'
+import '../../../styles/PostDetail.css'
 
 interface PageProps {
-  params: Promise<{ number: string }>
+  params: Promise<{ number: string; slug: string }>
 }
 
 export async function generateStaticParams() {
   try {
     const issues = await getIssues(1, 50)
-    return issues.map(issue => ({ number: String(issue.number) }))
+    return issues.map(issue => ({
+      number: String(issue.number),
+      slug: toSlug(issue.title),
+    }))
   } catch {
     return []
   }
@@ -47,13 +51,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function PostDetail({ params }: PageProps) {
-  const { number } = await params
+  const { number, slug } = await params
 
   let issue
   try {
     issue = await getIssue(parseInt(number))
   } catch {
     notFound()
+  }
+
+  // Redirect to canonical URL if slug doesn't match (including old /post/:number redirects with slug="-")
+  const expectedSlug = toSlug(issue.title)
+  if (slug !== expectedSlug) {
+    redirect(`/posts/${issue.number}/${expectedSlug}`)
   }
 
   const html = (marked.parse(issue.body || '') as string).replace(/^<h1[^>]*>.*?<\/h1>\s*/i, '')

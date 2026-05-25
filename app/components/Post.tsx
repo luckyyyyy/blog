@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { toSlug } from '../lib/slug'
 import type { Issue } from '../api'
 import './Post.css'
 
@@ -8,7 +9,7 @@ interface PostProps {
 
 export default function Post({ issue }: PostProps) {
   return (
-    <Link className="post-link" href={`/post/${issue.number}`}>
+    <Link className="post-link" href={`/posts/${issue.number}/${toSlug(issue.title)}`}>
       <article className="post-card">
         <div className="post-row1">
           <h2 className="post-title">{issue.title}</h2>
