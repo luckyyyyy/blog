@@ -9,6 +9,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@next/third-parties": "^16.2.6",
     "github-markdown-css": "^5.9.0",
     "highlight.js": "^11.11.1",
     "marked": "^17.0.4",

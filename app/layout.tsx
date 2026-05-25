@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import Background from './components/Background'
 import Header from './components/Header'
 import './globals.css'
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Background />
         <Header />
         <main className="main-content">{children}</main>
+        <GoogleAnalytics gaId="G-TR4Y7MLJP1" />
       </body>
     </html>
   )
