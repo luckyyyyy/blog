@@ -35,7 +35,7 @@ export default function LightboxWrapper({ children }: { children: React.ReactNod
   return (
     <div ref={ref}>
       {children}
-      <Lightbox open={index >= 1} close={close} index={index} slides={slides} />
+      <Lightbox open={index >= 0} close={close} index={index} slides={slides} />
     </div>
   )
 }
