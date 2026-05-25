@@ -1,10 +1,8 @@
-'use client'
-
-import { use, useState, useEffect } from 'react'
+import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { marked } from '../../lib/marked'
-import { getIssue } from '../../api'
-import type { Issue } from '../../api'
+import { getIssue, getIssues } from '../../api'
 import Comments from '../../components/Comments'
 import 'github-markdown-css/github-markdown.css'
 import '../../styles/PostDetail.css'
@@ -13,26 +11,50 @@ interface PageProps {
   params: Promise<{ number: string }>
 }
 
-export default function PostDetail({ params }: PageProps) {
-  const { number } = use(params)
-  const [issue, setIssue] = useState<Issue | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+export async function generateStaticParams() {
+  try {
+    const issues = await getIssues(1, 50)
+    return issues.map(issue => ({ number: String(issue.number) }))
+  } catch {
+    return []
+  }
+}
 
-  useEffect(() => {
-    getIssue(parseInt(number))
-      .then(setIssue)
-      .catch(e => setError(e.message))
-      .finally(() => setLoading(false))
-  }, [number])
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { number } = await params
+  try {
+    const issue = await getIssue(parseInt(number))
+    const plainText = (issue.body || '')
+      .replace(/[#*`\[\]()!>_~|\\-]/g, '')
+      .replace(/\n+/g, ' ')
+      .trim()
+    const description = plainText.length > 160 ? plainText.slice(0, 157) + '...' : plainText
 
-  if (loading) return <div className="detail-state">Loading...</div>
-  if (error || !issue) return (
-    <div className="detail-state detail-error-state">
-      <p>文章不存在或加载失败</p>
-      <Link href="/blog">← 返回列表</Link>
-    </div>
-  )
+    return {
+      title: `${issue.title} - William Chan`,
+      description,
+      openGraph: {
+        title: issue.title,
+        description,
+        type: 'article',
+        publishedTime: issue.created_at,
+        authors: [issue.user.login],
+      },
+    }
+  } catch {
+    return { title: 'Post Not Found - William Chan' }
+  }
+}
+
+export default async function PostDetail({ params }: PageProps) {
+  const { number } = await params
+
+  let issue
+  try {
+    issue = await getIssue(parseInt(number))
+  } catch {
+    notFound()
+  }
 
   const html = (marked.parse(issue.body || '') as string).replace(/^<h1[^>]*>.*?<\/h1>\s*/i, '')
 

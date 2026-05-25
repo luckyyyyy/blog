@@ -1,5 +1,3 @@
-'use client'
-
 import './styles/About.css'
 
 export default function About() {

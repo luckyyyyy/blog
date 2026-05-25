@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import ClientShell from './components/ClientShell'
+import Background from './components/Background'
+import Header from './components/Header'
 import './globals.css'
 import './components/Layout.css'
 
@@ -12,7 +13,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="zh-CN">
       <body>
-        <ClientShell>{children}</ClientShell>
+        <Background />
+        <Header />
+        <main className="main-content">{children}</main>
       </body>
     </html>
   )

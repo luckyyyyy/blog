@@ -21,13 +21,13 @@ export interface Issue {
 }
 
 export async function getIssues(page = 1, perPage = 20): Promise<Issue[]> {
-  const res = await fetch(`${GITHUB_API}/repos/${OWNER}/${REPO}/issues?state=open&creator=${OWNER}&per_page=${perPage}&page=${page}`)
+  const res = await fetch(`${GITHUB_API}/repos/${OWNER}/${REPO}/issues?state=open&creator=${OWNER}&per_page=${perPage}&page=${page}`, { next: { revalidate: 600 } })
   if (!res.ok) throw new Error(`Failed to fetch issues: ${res.status}`)
   return res.json()
 }
 
 export async function getIssue(number: number): Promise<Issue> {
-  const res = await fetch(`${GITHUB_API}/repos/${OWNER}/${REPO}/issues/${number}`)
+  const res = await fetch(`${GITHUB_API}/repos/${OWNER}/${REPO}/issues/${number}`, { next: { revalidate: 600 } })
   if (!res.ok) throw new Error(`Failed to fetch issue: ${res.status}`)
   const issue = await res.json()
   if (issue.user?.login !== OWNER) throw new Error('Issue not found')
@@ -47,7 +47,7 @@ export interface Comment {
 }
 
 export async function getIssueComments(number: number, page = 1, perPage = 30): Promise<Comment[]> {
-  const res = await fetch(`${GITHUB_API}/repos/${OWNER}/${REPO}/issues/${number}/comments?per_page=${perPage}&page=${page}`)
+  const res = await fetch(`${GITHUB_API}/repos/${OWNER}/${REPO}/issues/${number}/comments?per_page=${perPage}&page=${page}`, { next: { revalidate: 600 } })
   if (!res.ok) throw new Error(`Failed to fetch comments: ${res.status}`)
   return res.json()
 }
