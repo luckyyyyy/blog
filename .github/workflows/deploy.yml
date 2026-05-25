@@ -9,6 +9,8 @@ on:
 jobs:
   lint-and-build:
     runs-on: ubuntu-latest
+    env:
+      PNPM_STRICT: false
     steps:
       - uses: actions/checkout@v4
 
