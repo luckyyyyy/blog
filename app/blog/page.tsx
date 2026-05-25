@@ -1,7 +1,9 @@
+'use client'
+
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { getIssues, type Issue } from '../api'
 import Post from '../components/Post'
-import './Home.css'
+import '../styles/Home.css'
 
 const PER_PAGE = 20
 

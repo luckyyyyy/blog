@@ -1,20 +1,25 @@
-import { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
-import { marked } from 'marked'
-import { getIssue } from '../api'
-import type { Issue } from '../api'
-import Comments from '../components/Comments'
-import 'github-markdown-css/github-markdown.css'
-import './PostDetail.css'
+'use client'
 
-export default function PostDetail() {
-  const { number } = useParams<{ number: string }>()
+import { use, useState, useEffect } from 'react'
+import Link from 'next/link'
+import { marked } from '../../lib/marked'
+import { getIssue } from '../../api'
+import type { Issue } from '../../api'
+import Comments from '../../components/Comments'
+import 'github-markdown-css/github-markdown.css'
+import '../../styles/PostDetail.css'
+
+interface PageProps {
+  params: Promise<{ number: string }>
+}
+
+export default function PostDetail({ params }: PageProps) {
+  const { number } = use(params)
   const [issue, setIssue] = useState<Issue | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    if (!number) return
     getIssue(parseInt(number))
       .then(setIssue)
       .catch(e => setError(e.message))
@@ -25,7 +30,7 @@ export default function PostDetail() {
   if (error || !issue) return (
     <div className="detail-state detail-error-state">
       <p>文章不存在或加载失败</p>
-      <Link to="/blog">← 返回列表</Link>
+      <Link href="/blog">← 返回列表</Link>
     </div>
   )
 
@@ -34,7 +39,7 @@ export default function PostDetail() {
   return (
     <div className="post-detail">
       <nav className="detail-nav">
-        <Link to="/blog">← 所有文章</Link>
+        <Link href="/blog">← 所有文章</Link>
       </nav>
       <article className="detail-article">
         <h1 className="detail-title">{issue.title}</h1>

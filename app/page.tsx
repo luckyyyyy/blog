@@ -1,4 +1,6 @@
-import './About.css'
+'use client'
+
+import './styles/About.css'
 
 export default function About() {
   return (

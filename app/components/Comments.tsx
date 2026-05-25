@@ -1,5 +1,7 @@
+'use client'
+
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { marked } from 'marked'
+import { marked } from '../lib/marked'
 import { getIssueComments } from '../api'
 import type { Comment } from '../api'
 import './Comments.css'

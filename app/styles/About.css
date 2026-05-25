@@ -139,6 +139,8 @@
 /* ---- AI Native ---- */
 .ai-native-card {
   background: linear-gradient(135deg, rgba(0, 113, 227, 0.04) 0%, rgba(56, 178, 244, 0.04) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(0, 113, 227, 0.15);
   border-radius: 14px;
   padding: 24px 26px;
@@ -147,6 +149,8 @@
 @media (prefers-color-scheme: dark) {
   .ai-native-card {
     background: linear-gradient(135deg, rgba(77, 163, 255, 0.06) 0%, rgba(125, 211, 252, 0.06) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border-color: rgba(77, 163, 255, 0.2);
   }
 }
@@ -240,11 +244,13 @@
   display: block;
   text-decoration: none;
   color: inherit;
-  background: #fff;
-  border: 1px solid #e8e8e8;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(220, 220, 220, 0.55);
   border-radius: 14px;
   padding: 24px 26px;
-  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+  transition: box-shadow 0.2s, transform 0.2s, background 0.2s, border-color 0.2s;
 }
 
 .project-card-featured {
@@ -252,20 +258,22 @@
 }
 
 .project-card:hover {
+  background: rgba(255, 255, 255, 0.82);
   box-shadow: 0 6px 28px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
-  border-color: #ccc;
+  border-color: rgba(180, 180, 180, 0.65);
 }
 
 @media (prefers-color-scheme: dark) {
   .project-card {
-    background: #161616;
-    border-color: #2a2a2a;
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
   }
 
   .project-card:hover {
+    background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 6px 28px rgba(0, 0, 0, 0.4);
-    border-color: #3a3a3a;
+    border-color: rgba(255, 255, 255, 0.14);
   }
 }
 
