@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   try {
     const issue = await getIssue(parseInt(number))
     const plainText = (issue.body || '')
-      .replace(/[#*`\[\]()!>_~|\\-]/g, '')
+      .replace(/[#*`[\]()!>_~|\\-]/g, '')
       .replace(/\n+/g, ' ')
       .trim()
     const description = plainText.length > 160 ? plainText.slice(0, 157) + '...' : plainText
