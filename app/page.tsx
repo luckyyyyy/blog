@@ -1,196 +1,150 @@
 import './styles/About.css'
+import { getRepoStars } from './api'
 
-export default function About() {
+const PROJECTS = [
+  {
+    name: 'miu2d',
+    repo: 'luckyyyyy/miu2d',
+    href: 'https://github.com/luckyyyyy/miu2d',
+    since: 'Jan 2026',
+    live: 'miu2d.com',
+    desc: 'A 2D ARPG game engine built from scratch with 176k lines of code — native WebGL, zero game framework dependencies. Built with TypeScript + Rust + React, faithfully recreating three classic Xishanju wuxia RPGs in the browser. Entirely AI Native development, a Vibe Coding practice project.',
+    tags: ['TypeScript', 'Rust', 'WebGL', 'WebAssembly', 'React'],
+    featured: true,
+  },
+  {
+    name: 'tokimo-package-sandbox',
+    repo: 'tokimo-lab/tokimo-package-sandbox',
+    href: 'https://github.com/tokimo-lab/tokimo-package-sandbox',
+    since: 'May 2026',
+    desc: 'Cross-platform native sandbox for running arbitrary commands safely. Linux (bwrap + seccomp), macOS (Virtualization.framework), Windows (Hyper-V HCS). Built with Rust.',
+    tags: ['Rust', 'Sandbox', 'Linux', 'macOS', 'Windows'],
+  },
+  {
+    name: 'JH',
+    repo: 'luckyyyyy/JH',
+    href: 'https://github.com/luckyyyyy/JH',
+    since: 'Dec 2014',
+    desc: 'Open-source plugin framework for JX3 (Jianxia Qingyuan Online III), focused on PVE gameplay. Built with Lua, covering cooldown tracking, dungeon helpers, damage meters, raid tools, and 10+ feature modules. 50+ Forks.',
+    tags: ['Lua', 'C++', 'Game Plugin'],
+  },
+  {
+    name: 'node-opencv',
+    repo: 'luckyyyyy/node-opencv',
+    href: 'https://github.com/luckyyyyy/node-opencv',
+    since: 'Nov 2024',
+    desc: 'Node.js OpenCV native extension built with Rust + NAPI-RS. Provides template matching, image recognition, and other computer vision capabilities for Node.js / Electron applications.',
+    tags: ['Rust', 'Node.js', 'OpenCV', 'NAPI'],
+  },
+  {
+    name: 'node-system-proxy',
+    repo: 'luckyyyyy/node-system-proxy',
+    href: 'https://github.com/luckyyyyy/node-system-proxy',
+    since: 'Apr 2022',
+    desc: 'Node.js extension for controlling system proxy settings via macOS / Windows native APIs. Built with Objective-C + C. Commonly used in Electron apps for one-click proxy switching.',
+    tags: ['Objective-C', 'C', 'Node.js', 'Electron'],
+  },
+  {
+    name: 'Lienol/openwrt',
+    repo: 'Lienol/openwrt',
+    href: 'https://github.com/Lienol/openwrt',
+    since: 'Feb 2020',
+    desc: 'Popular OpenWrt firmware fork for embedded router devices. Rich package ecosystem with deep customization support. 1.8k+ developer Forks.',
+    tags: ['C', 'OpenWrt', 'Linux', 'Embedded'],
+  },
+]
+
+function formatStars(n: number): string {
+  if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, '')}k`
+  return String(n)
+}
+
+export default async function About() {
+  const repos = PROJECTS.map((p) => p.repo)
+  const starsMap = await getRepoStars(repos)
+
   return (
     <div className="about">
       <section className="about-hero">
         <img className="about-avatar" src="/assets/avatar.png" alt="avatar" />
         <div className="about-hero-text">
           <h1 className="about-name">William Chan</h1>
-          <p className="about-role">Full Stack Developer · AI Agent Engineer</p>
+          <p className="about-role">Full Stack Developer / AI Native Engineer / Technical Product Manager</p>
           <div className="about-links">
             <a className="about-link-btn" target="_blank" rel="noopener noreferrer" href="https://github.com/luckyyyyy">
               <svg height="16" viewBox="0 0 16 16" width="16" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
               GitHub
+            </a>
+            <a className="about-link-btn" href="/blog">
+              <svg height="16" viewBox="0 0 16 16" width="16" aria-hidden="true"><path d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z"></path></svg>
+              Blog
             </a>
           </div>
         </div>
       </section>
 
       <section className="about-section">
-        <h2 className="about-section-title">AI Native</h2>
-        <div className="ai-native-card">
-          <div className="ai-native-badge">AI Native Engineer</div>
-          <p className="ai-native-desc">
-            我的日常工作方式已经完全 AI 化。从设计、编码、调试到架构决策，AI Agent 是我的核心协作者——
-            不只是代码补全，而是真正的结对编程伙伴。
+        <div className="about-intro">
+          <p>
+            I&apos;m a full-stack developer and AI Native engineer, specializing in tool products, developer products, enterprise service products, and testing products.
           </p>
-          <ul className="ai-native-list">
-            <li>
-              <span className="ai-dot" />
-              <span><strong>Vibe Coding</strong> — 以自然语言驱动整个开发周期：需求拆解、代码生成、重构、测试一气呵成，专注架构决策而非语法细节</span>
-            </li>
-            <li>
-              <span className="ai-dot" />
-              <span><strong>Agent 开发</strong> — 设计并实现多步骤 AI Agent 工作流，结合 Function Calling、Tool Use 与任务规划，构建能自主完成复杂工程任务的智能体系统</span>
-            </li>
-            <li>
-              <span className="ai-dot" />
-              <span><strong>RAG 与知识工程</strong> — 构建检索增强生成（RAG）pipeline，融合向量数据库、文档解析与上下文管理，打造私有知识库问答与智能检索应用</span>
-            </li>
-            <li>
-              <span className="ai-dot" />
-              <span><strong>Skill / Tool 构建</strong> — 为 AI Agent 开发自定义 Skill 与 Tool，设计结构化输入输出协议，扩展模型能力边界，接入真实世界系统</span>
-            </li>
-            <li>
-              <span className="ai-dot" />
-              <span><strong>MCP 生态</strong> — 深度使用 Model Context Protocol，将代码库、设计稿、文档无缝接入 AI 上下文，实现全链路智能辅助</span>
-            </li>
-          </ul>
+          <p>
+            I have extensive development experience — 20 years in the internet industry, coding for 15 years.
+          </p>
+          <p>
+            I have high standards for user experience and a deep appreciation for well-crafted software.
+          </p>
+          <p>
+            My current development focus spans frontend, cloud-native applications, and AI-driven systems — I&apos;m also well-versed in networking, operating systems, and storage.
+          </p>
+          <p>
+            I build AI Native applications from the ground up: Agent systems with Function Calling / Tool Use, RAG pipelines, MCP integration, and full Vibe Coding workflows.
+          </p>
+          <p>
+            I have a passion for technology and hardware, and I&apos;m also a white-hat hacker.
+          </p>
+          <p>
+            I mostly code in JavaScript/TypeScript, Go, Rust, and C — but I&apos;m not limited to any specific language.
+          </p>
+          <blockquote className="about-open-to">
+            I&apos;m currently open to new opportunities. If you&apos;re working on something interesting — especially in AI, developer tools, or infrastructure — feel free to reach out!
+          </blockquote>
+          <p className="about-kaomoji">(*^▽^*)</p>
         </div>
       </section>
 
       <section className="about-section">
-        <h2 className="about-section-title">Tech Stack</h2>
-        <div className="about-stack">
-          <p>C &middot; Rust &middot; Objective-C &middot; TypeScript &middot; Lua &middot; Python &middot; JavaScript &middot; PHP &middot; Node.js</p>
-          <p>OpenWRT &middot; Webpack &middot; Nginx &middot; Hadoop &middot; MySQL &middot; Kafka &middot; RabbitMQ &middot; RocketMQ</p>
-          <p>Linux (Ubuntu) &middot; macOS</p>
-        </div>
-      </section>
+        <h2 className="about-section-title">Featured Projects</h2>
 
-      <section className="about-section">
-        <h2 className="about-section-title">Projects</h2>
-
-        <a
-          className="project-card project-card-featured"
-          href="https://github.com/luckyyyyy/miu2d"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="project-card-header">
-            <span className="project-name">miu2d</span>
-            <div className="project-card-right">
-              <span className="project-since">since Jan 2026</span>
-              <span className="project-stars">★ 21</span>
-              <span className="project-live">miu2d.com ↗</span>
-            </div>
-          </div>
-          <p className="project-desc">
-            176,000 行代码从零打造的 2D ARPG 游戏引擎——原生 WebGL，零游戏框架依赖。
-            使用 TypeScript + Rust + React 构建，已在浏览器中完整还原三款经典西山居武侠 RPG。
-            全程 AI Native 开发，Vibe Coding 实践项目。
-          </p>
-          <div className="project-tags">
-            <span>TypeScript</span>
-            <span>Rust</span>
-            <span>WebGL</span>
-            <span>WebAssembly</span>
-            <span>React</span>
-          </div>
-        </a>
-
-        <div className="project-grid">
+        {PROJECTS.map((project) => (
           <a
-            className="project-card"
-            href="https://github.com/luckyyyyy/JH"
+            key={project.repo}
+            className={`project-card ${project.featured ? 'project-card-featured' : ''}`}
+            href={project.href}
             target="_blank"
             rel="noopener noreferrer"
           >
             <div className="project-card-header">
-              <span className="project-name">JH · 菊花插件集</span>
+              <span className="project-name">{project.name}</span>
               <div className="project-card-right">
-                <span className="project-since">since Dec 2014</span>
-                <span className="project-stars">★ 87</span>
+                <span className="project-since">since {project.since}</span>
+                <span className="project-stars">★ {formatStars(starsMap[project.repo] ?? 0)}</span>
+                {project.live && <span className="project-live">{project.live} ↗</span>}
               </div>
             </div>
-            <p className="project-desc">
-              《剑侠情缘网络版叁》开源游戏插件框架，专注 PVE 玩法。Lua 实现，覆盖冷却监控、副本助手、伤害统计、团队工具等十余个功能模块，50+ Fork。
-            </p>
+            <p className="project-desc">{project.desc}</p>
             <div className="project-tags">
-              <span>Lua</span>
-              <span>C++</span>
-              <span>Game Plugin</span>
+              {project.tags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
             </div>
           </a>
-
-          <a
-            className="project-card"
-            href="https://github.com/luckyyyyy/node-opencv"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="project-card-header">
-              <span className="project-name">node-opencv</span>
-              <div className="project-card-right">
-                <span className="project-since">since Nov 2024</span>
-                <span className="project-stars">★ 2</span>
-              </div>
-            </div>
-            <p className="project-desc">
-              基于 Rust + NAPI-RS 封装的 Node.js OpenCV 原生扩展。提供模板匹配、图像识别等计算机视觉能力，供 Node.js / Electron 应用直接调用。
-            </p>
-            <div className="project-tags">
-              <span>Rust</span>
-              <span>Node.js</span>
-              <span>OpenCV</span>
-              <span>NAPI</span>
-            </div>
-          </a>
-
-          <a
-            className="project-card"
-            href="https://github.com/luckyyyyy/node-system-proxy"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="project-card-header">
-              <span className="project-name">node-system-proxy</span>
-              <div className="project-card-right">
-                <span className="project-since">since Apr 2022</span>
-                <span className="project-stars">★ 13</span>
-              </div>
-            </div>
-            <p className="project-desc">
-              通过 macOS / Windows 系统原生 API 控制系统代理开关的 Node.js 扩展，Objective-C + C 实现。常用于 Electron 应用内一键切换系统代理。
-            </p>
-            <div className="project-tags">
-              <span>Objective-C</span>
-              <span>C</span>
-              <span>Node.js</span>
-              <span>Electron</span>
-            </div>
-          </a>
-
-          <a
-            className="project-card"
-            href="https://github.com/Lienol/openwrt"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="project-card-header">
-              <span className="project-name">Lienol/openwrt</span>
-              <div className="project-card-right">
-                <span className="project-since">since Feb 2020</span>
-                <span className="project-stars">★ 3.6k</span>
-              </div>
-            </div>
-            <p className="project-desc">
-              主流 OpenWrt 改版固件，面向嵌入式路由器设备的 Linux 系统。集成丰富软件包生态，支持深度定制，被 1.8k+ 开发者 Fork。
-            </p>
-            <div className="project-tags">
-              <span>C</span>
-              <span>OpenWrt</span>
-              <span>Linux</span>
-              <span>Embedded</span>
-            </div>
-          </a>
-        </div>
+        ))}
       </section>
 
       <section className="about-section about-contact">
         <img className="about-qrcode" src="/assets/qrcode.jpg" alt="WeChat QR Code" />
-        <p>微信扫一扫</p>
+        <p>Scan to connect on WeChat</p>
       </section>
     </div>
   )

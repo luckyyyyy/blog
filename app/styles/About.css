@@ -1,18 +1,18 @@
 .about {
-  max-width: 820px;
+  max-width: 780px;
   width: 90%;
   margin: 0 auto;
-  padding: 60px 0 80px;
+  padding: 72px 0 96px;
 }
 
 /* ---- Hero ---- */
 .about-hero {
   display: flex;
   align-items: center;
-  gap: 36px;
-  padding-bottom: 48px;
+  gap: 40px;
+  padding-bottom: 56px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.07);
-  margin-bottom: 48px;
+  margin-bottom: 56px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,13 +22,13 @@
 }
 
 .about-avatar {
-  width: 96px;
-  height: 96px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid rgba(0, 0, 0, 0.07);
   flex-shrink: 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -43,10 +43,11 @@
 }
 
 .about-name {
-  font-size: 26px;
-  font-weight: 700;
-  margin: 0 0 8px;
-  letter-spacing: -0.3px;
+  font-family: var(--font-serif), 'Georgia', 'Times New Roman', serif;
+  font-size: 36px;
+  font-weight: 400;
+  margin: 0 0 10px;
+  letter-spacing: -0.5px;
   color: #111;
 }
 
@@ -57,9 +58,12 @@
 }
 
 .about-role {
-  font-size: 15px;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
   color: #666;
-  margin: 0 0 20px;
+  margin: 0 0 22px;
+  letter-spacing: 0.01em;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -108,135 +112,72 @@
 
 /* ---- Sections ---- */
 .about-section {
-  margin-bottom: 48px;
+  margin-bottom: 56px;
 }
 
 .about-section-title {
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #999;
-  margin: 0 0 20px;
-}
-
-.about-stack {
-  font-size: 14px;
-  line-height: 1.9;
-  color: #555;
-}
-
-.about-stack p {
-  margin: 0;
+  font-family: var(--font-serif), 'Georgia', 'Times New Roman', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: #111;
+  margin: 0 0 28px;
+  letter-spacing: -0.3px;
 }
 
 @media (prefers-color-scheme: dark) {
-  .about-stack {
-    color: #888;
+  .about-section-title {
+    color: #eee;
   }
 }
 
-/* ---- AI Native ---- */
-.ai-native-card {
-  background: linear-gradient(135deg, rgba(0, 113, 227, 0.04) 0%, rgba(56, 178, 244, 0.04) 100%);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(0, 113, 227, 0.15);
-  border-radius: 14px;
-  padding: 24px 26px;
-}
-
-@media (prefers-color-scheme: dark) {
-  .ai-native-card {
-    background: linear-gradient(135deg, rgba(77, 163, 255, 0.06) 0%, rgba(125, 211, 252, 0.06) 100%);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border-color: rgba(77, 163, 255, 0.2);
-  }
-}
-
-.ai-native-badge {
-  display: inline-block;
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  background: rgba(0, 113, 227, 0.1);
-  color: #0071e3;
-  border: 1px solid rgba(0, 113, 227, 0.2);
-  margin-bottom: 14px;
-}
-
-@media (prefers-color-scheme: dark) {
-  .ai-native-badge {
-    background: rgba(77, 163, 255, 0.12);
-    color: #4da3ff;
-    border-color: rgba(77, 163, 255, 0.25);
-  }
-}
-
-.ai-native-desc {
-  font-size: 14px;
-  line-height: 1.75;
+/* ---- Intro ---- */
+.about-intro {
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  line-height: 1.85;
   color: #444;
-  margin: 0 0 18px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .ai-native-desc {
-    color: #999;
-  }
-}
-
-.ai-native-list {
-  list-style: none;
+.about-intro p {
   margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
-.ai-native-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 14px;
-  line-height: 1.65;
-  color: #555;
+.about-intro p + p {
+  margin-top: 6px;
 }
 
 @media (prefers-color-scheme: dark) {
-  .ai-native-list li {
-    color: #888;
+  .about-intro {
+    color: #bbb;
   }
 }
 
-.ai-native-list li strong {
-  color: #222;
+.about-open-to {
+  margin: 28px 0 20px;
+  padding: 16px 24px;
+  border-left: 3px solid #0071e3;
+  background: rgba(0, 113, 227, 0.04);
+  border-radius: 0 10px 10px 0;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #333;
+  font-style: italic;
 }
 
 @media (prefers-color-scheme: dark) {
-  .ai-native-list li strong {
-    color: #ddd;
+  .about-open-to {
+    background: rgba(77, 163, 255, 0.06);
+    border-left-color: #4da3ff;
+    color: #ccc;
   }
 }
 
-.ai-dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #0071e3;
-  flex-shrink: 0;
-  margin-top: 7px;
-}
-
-@media (prefers-color-scheme: dark) {
-  .ai-dot {
-    background: #4da3ff;
-  }
+.about-kaomoji {
+  font-size: 20px;
+  text-align: center;
+  color: #999;
+  margin: 32px 0 0;
+  letter-spacing: 2px;
 }
 
 /* ---- Project Card ---- */
@@ -249,7 +190,7 @@
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(220, 220, 220, 0.55);
   border-radius: 14px;
-  padding: 24px 26px;
+  padding: 24px 28px;
   transition: box-shadow 0.2s, transform 0.2s, background 0.2s, border-color 0.2s;
 }
 
@@ -277,28 +218,17 @@
   }
 }
 
-.project-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-@media (max-width: 640px) {
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 .project-card-header {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .project-name {
-  font-size: 18px;
-  font-weight: 700;
+  font-family: var(--font-serif), 'Georgia', 'Times New Roman', serif;
+  font-size: 20px;
+  font-weight: 500;
   color: #111;
   letter-spacing: -0.2px;
 }
@@ -318,7 +248,7 @@
 .project-card-right {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   flex-shrink: 0;
 }
 
@@ -347,8 +277,9 @@
 }
 
 .project-desc {
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 14px;
-  line-height: 1.75;
+  line-height: 1.8;
   color: #555;
   margin: 0 0 16px;
 }
@@ -366,7 +297,7 @@
 }
 
 .project-tags span {
-  padding: 2px 9px;
+  padding: 2px 10px;
   border-radius: 20px;
   font-size: 12px;
   font-weight: 500;
@@ -386,6 +317,14 @@
 /* ---- QR Code ---- */
 .about-contact {
   text-align: center;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+@media (prefers-color-scheme: dark) {
+  .about-contact {
+    border-top-color: rgba(255, 255, 255, 0.07);
+  }
 }
 
 .about-qrcode {
@@ -404,15 +343,24 @@
   margin: 0;
 }
 
+/* ---- Responsive ---- */
 @media (max-width: 600px) {
   .about-hero {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 24px;
   }
 
   .about-avatar {
-    width: 76px;
-    height: 76px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .about-name {
+    font-size: 30px;
+  }
+
+  .about-section-title {
+    font-size: 22px;
   }
 }
